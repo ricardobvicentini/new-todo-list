@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="todo.css" />
+    <script src="todo.js" defer></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <span class="logo" href="#">Todo List</span>
+      <a class="list-folder"><i class="bx bx-folder"></i></a>
+    </header>
+
+    <main class="main-container">
+      <section class="input-container">
+        <input
+          type="text"
+          class="js-list-name list-name"
+          max="25"
+          placeholder="List name"
+        />
+        <a class="save-btn"><i class="bx bxs-folder-plus"></i></a>
+        <a class="list-name-remove-btn">
+          <i class="bx bx-trash"></i>
+        </a>
+
+        <input
+          type="text"
+          class="js-task-input task-input"
+          max="25"
+          placeholder="Task"
+        />
+        <input type="number" class="js-task-qty task-qty" min="0" max="20" />
+        <a class="task-input-add-btn">
+          <i class="bx bxs-plus-square"></i>
+        </a>
+      </section>
+      <section class="task-container">
+        <div class="js-task task-wrapper"></div>
+      </section>
+    </main>
+  </body>
+</html>
