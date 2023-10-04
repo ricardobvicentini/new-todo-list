@@ -32,6 +32,10 @@ button {
   border: none;
 }
 
+i {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
 body {
   background-image: linear-gradient(to bottom, var(--bg1), #0f293b);
   font-family: 'Poppins', sans-serif;
@@ -57,7 +61,7 @@ body {
 
 .logo,
 .list-folder {
-  font-size: 1.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: bold;
   text-transform: uppercase;
   color: var(--text);
@@ -94,6 +98,7 @@ body {
 .list-name,
 .task-input {
   width: 90%;
+  font-size: clamp(1rem, 3vw, 2rem);
   background-color: transparent;
   color: var(--text);
   padding-inline: 1rem;
@@ -109,7 +114,6 @@ body {
 .save-btn,
 .list-name-remove-btn,
 .task-input-add-btn {
-  font-size: 1.7rem;
   font-weight: bold;
   text-transform: uppercase;
   color: var(--text);
@@ -117,6 +121,7 @@ body {
 
 .task-qty {
   width: 60%;
+  height: 40%;
 }
 
 /* TASKS */
@@ -199,6 +204,6 @@ body {
 
 @media screen and (width > 600px) {
   .main-container {
-    width: 50dvw;
+    width: 40dvw;
   }
 }
