@@ -135,17 +135,22 @@ body {
   width: 100%;
   height: 80%;
 }
-/* 
+
 .task-wrapper {
-  width: 90%;
-  height: 80%;
+  /* border: 1px solid var(--text);
+  border-radius: 0 1rem 1rem 0 0; */
+  width: 100%;
+  height: 20%;
+  border: 1px solid red;
+  padding: 1rem;
   display: grid;
-  grid-template-rows: auto;
+  grid-template-columns: 2fr repeat(2, 0.5fr);
+  place-items: center;
   row-gap: 2%;
   overflow-y: auto;
 }
 
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -155,55 +160,24 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: #fff;
-}
+} */
 
 .task {
-  border-bottom: 1px solid rgb(69, 214, 202);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.task-name-date {
-  color: #fff;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  padding: 1rem;
 }
 
 .task-name {
+  width: 90%;
+  font-size: clamp(1rem, 3vw, 2rem);
   text-transform: capitalize;
-  font-size: 4vw;
+  background-color: transparent;
+  color: var(--text);
+  padding-inline: 1rem;
+  border-bottom: 1px solid var(--text);
 }
-
-.task-date {
-  font-size: 2vw;
-}
-
-.task-btn {
-  background-image: linear-gradient(
-    to right,
-    rgb(233, 66, 66),
-    rgb(196, 112, 112)
-  );
-  font-size: 4vw;
-  font-weight: 500;
-  border: 1px inset rgb(233, 66, 66);
-  border-radius: 7px;
-  width: 5vw;
-  height: 5vw;
-  transition: all 100ms ease-in-out;
-}
-
-.task-btn:hover {
-  background-image: linear-gradient(
-    to right,
-    rgb(196, 112, 112),
-    rgb(233, 66, 66)
-  );
-  border: 1px outset rgb(233, 66, 66);
-  color: #fff;
-}
- */
 
 @media screen and (width > 600px) {
   .main-container {

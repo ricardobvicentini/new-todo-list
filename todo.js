@@ -20,14 +20,16 @@ function renderTodoList() {
     const name = todoObj.name;
     // Destructuring
     /* const { name, dueDate } = todoObj; */
-    const html = `
+    const html = `    
     <div class="task">
-      <div class="task-name-date"><span class="task-name">${name}</span> <span class="task-date">${dueDate}</span></div> 
-      <button class="task-btn" onclick="
-        todoList.splice(${index}, 1);
-        renderTodoList();
-      ">X</button>
+    <span class="task-name">${name}</span>
     </div>
+        <a class="task-cross-btn">
+          <i class='bx bx-x-circle'></i>
+        </a>
+        <a class="task-remove-btn">
+          <i class="bx bx-trash"></i>
+        </a>
       `;
     todoListHTML += html;
   });
@@ -54,22 +56,19 @@ function renderTodoList() {
 }; */
 
 function addTodo() {
-  const name = inputEl.value;
-  const dueDate = dateEl.value;
+  const name = taskNameEl.value;
   todoList.push({
     name: name,
-    dueDate: dueDate,
     // Shorthand
     /* name, 
     dueDate */
   });
   renderTodoList();
-  inputEl.value = '';
-  dateEl.value = '';
-  inputEl.focus();
+  taskNameEl.value = '';
+  taskNameEl.focus();
 }
 
-btnEl.addEventListener('click', () => {
+taskAddBtnEl.addEventListener('click', () => {
   addTodo();
 });
 
