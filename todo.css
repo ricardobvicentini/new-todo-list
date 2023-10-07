@@ -146,16 +146,13 @@ body {
   width: 100%;
   height: 100%;
   border: 1px solid red;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 1.5fr repeat(3, 0.5fr);
-  grid-template-rows: auto;
-  place-items: center;
-  row-gap: 2%;
-  /* overflow-y: auto; */
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+  overflow-y: auto;
 }
 
-/* ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -165,14 +162,23 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: #fff;
-} */
+}
 
 .task {
   width: 100%;
-  max-height: 20%;
+  height: 10%;
   border: 1px solid red;
-  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: 2fr repeat(2, 0.5fr);
+  grid-template-rows: auto;
+  place-items: center;
+  row-gap: 2%;
+}
+
+.task-name-wrapper {
   border-bottom: 1px solid var(--text);
+  width: 90%;
 }
 
 .task-name {

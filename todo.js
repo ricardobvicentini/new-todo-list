@@ -7,8 +7,6 @@ const taskNameEl = document.querySelector('.js-task-input');
 const qtyEl = document.querySelector('.js-task-qty');
 const taskAddBtnEl = document.querySelector('.task-input-add-btn');
 
-const btnEl = document.querySelector('.btn');
-const inputEl = document.getElementById('js-name-input');
 const taskEl = document.querySelector('.js-task');
 
 function renderTodoList() {
@@ -22,15 +20,14 @@ function renderTodoList() {
     /* const { name, dueDate } = todoObj; */
     const html = `    
     <div class="task">
-    <span class="task-name">${name}</span>
+    <div class="task-name-wrapper"><span class="task-name">${name}</span></div>
+    <a class="task-cross-btn">
+    <i class='bx bx-x-circle'></i>
+    </a>
+    <a class="task-remove-btn">
+    <i class="bx bx-trash"></i>
+    </a>
     </div>
-    <input type="number" class="remove-task-qty" min="0" max="20" />
-        <a class="task-cross-btn">
-          <i class='bx bx-x-circle'></i>
-        </a>
-        <a class="task-remove-btn">
-          <i class="bx bx-trash"></i>
-        </a>
       `;
     todoListHTML += html;
   });
