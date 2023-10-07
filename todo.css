@@ -66,6 +66,10 @@ body {
   color: var(--text);
 }
 
+.list-folder {
+  cursor: pointer;
+}
+
 /* MAIN */
 
 .main-container {
@@ -115,6 +119,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   color: var(--text);
+  cursor: pointer;
 }
 
 .task-qty {

@@ -1,23 +1,23 @@
-const todoList = [/* ,
-  {
-    name: "",
-    date: "",
-  } */
-];
-const btnEl = document.querySelector(".btn");
-const inputEl = document.getElementById("js-name-input");
-const dateEl = document.getElementById("js-date-input");
-const taskEl = document.querySelector(".js-task");
+const todoList = [];
 
+const listNameEl = document.querySelector('.js-list-name');
+const saveBtnEl = document.querySelector('.save-btn');
+const listRemoveBtnEl = document.querySelector('.list-name-remove-btn');
+const taskNameEl = document.querySelector('.js-task-input');
+const qtyEl = document.querySelector('.js-task-qty');
+const taskAddBtnEl = document.querySelector('.task-input-add-btn');
+
+const btnEl = document.querySelector('.btn');
+const inputEl = document.getElementById('js-name-input');
+const taskEl = document.querySelector('.js-task');
 
 function renderTodoList() {
-  let todoListHTML = "";
+  let todoListHTML = '';
 
   // FOR EACH
 
   todoList.forEach((todoObj, index) => {
     const name = todoObj.name;
-    const dueDate = todoObj.dueDate;
     // Destructuring
     /* const { name, dueDate } = todoObj; */
     const html = `
@@ -30,12 +30,11 @@ function renderTodoList() {
     </div>
       `;
     todoListHTML += html;
-  });  
-  
-  taskEl.innerHTML = todoListHTML;
+  });
 
-};
-  
+  taskEl.innerHTML = todoListHTML;
+}
+
 /*   for (let i = 0; i < todoList.length; i++) {
     const todoObj = todoList[i];
     const name = todoObj.name;
@@ -59,7 +58,7 @@ function addTodo() {
   const dueDate = dateEl.value;
   todoList.push({
     name: name,
-    dueDate: dueDate
+    dueDate: dueDate,
     // Shorthand
     /* name, 
     dueDate */
@@ -68,12 +67,11 @@ function addTodo() {
   inputEl.value = '';
   dateEl.value = '';
   inputEl.focus();
-};
+}
 
 btnEl.addEventListener('click', () => {
-  addTodo()
+  addTodo();
 });
-
 
 // Loops
 
