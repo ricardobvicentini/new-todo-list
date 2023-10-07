@@ -12,8 +12,9 @@
 }
 
 :root {
-  --bg1: #081b29;
-  --bg1-grad: #0f293b;
+  --bg1: #0a1f30;
+  --bg1-grad: #143e60;
+
   --bg-header: #7d8ca35d;
   --m-cont: #7d8ca3;
   --m-cont-grad: #7d8ca35d;
