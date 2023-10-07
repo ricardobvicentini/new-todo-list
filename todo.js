@@ -24,6 +24,7 @@ function renderTodoList() {
     <div class="task">
     <span class="task-name">${name}</span>
     </div>
+    <input type="number" class="remove-task-qty" min="0" max="20" />
         <a class="task-cross-btn">
           <i class='bx bx-x-circle'></i>
         </a>

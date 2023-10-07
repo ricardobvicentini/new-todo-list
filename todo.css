@@ -31,7 +31,7 @@ button {
   border: none;
 }
 
-i {
+.bx {
   font-size: clamp(2rem, 4vw, 3rem);
 }
 
@@ -89,6 +89,7 @@ body {
 
 .input-container {
   border: 1px solid var(--text);
+  border: 1px solid red;
   border-radius: 1rem 1rem 0 0;
   width: 100%;
   height: 20%;
@@ -99,6 +100,7 @@ body {
 
 .list-name,
 .task-input {
+  border: 1px solid red;
   width: 90%;
   font-size: clamp(1rem, 3vw, 2rem);
   background-color: transparent;
@@ -115,14 +117,18 @@ body {
 
 .save-btn,
 .list-name-remove-btn,
-.task-input-add-btn {
+.task-input-add-btn,
+.task-remove-btn,
+.task-cross-btn {
+  border: 1px solid red;
   font-weight: bold;
   text-transform: uppercase;
   color: var(--text);
   cursor: pointer;
 }
 
-.task-qty {
+.task-qty,
+.remove-task-qty {
   width: 40%;
   height: 40%;
 }
@@ -137,17 +143,16 @@ body {
 }
 
 .task-wrapper {
-  /* border: 1px solid var(--text);
-  border-radius: 0 1rem 1rem 0 0; */
   width: 100%;
-  height: 20%;
+  height: 100%;
   border: 1px solid red;
   padding: 1rem;
   display: grid;
-  grid-template-columns: 2fr repeat(2, 0.5fr);
+  grid-template-columns: 1.5fr repeat(3, 0.5fr);
+  grid-template-rows: auto;
   place-items: center;
   row-gap: 2%;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 /* ::-webkit-scrollbar-track {
@@ -164,9 +169,10 @@ body {
 
 .task {
   width: 100%;
-  height: 100%;
+  max-height: 20%;
   border: 1px solid red;
   padding: 1rem;
+  border-bottom: 1px solid var(--text);
 }
 
 .task-name {
@@ -176,7 +182,6 @@ body {
   background-color: transparent;
   color: var(--text);
   padding-inline: 1rem;
-  border-bottom: 1px solid var(--text);
 }
 
 @media screen and (width > 600px) {
