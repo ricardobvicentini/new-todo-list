@@ -14,7 +14,7 @@ function renderTodoList() {
 
   // FOR EACH
 
-  todoList.forEach((todoObj, index) => {
+  todoList.forEach((todoObj) => {
     const name = todoObj.name;
     // Destructuring
     /* const { name, dueDate } = todoObj; */
@@ -35,24 +35,6 @@ function renderTodoList() {
   taskEl.innerHTML = todoListHTML;
 }
 
-/*   for (let i = 0; i < todoList.length; i++) {
-    const todoObj = todoList[i];
-    const name = todoObj.name;
-    const dueDate = todoObj.dueDate;
-    const html = `
-    <div class="task">
-      <div class="task-name-date"><span class="task-name">${name}</span> <span class="task-date">${dueDate}</span></div> 
-      <button class="task-btn" onclick="
-        todoList.splice(${i}, 1);
-        renderTodoList();
-      ">X</button>
-    </div>
-      `;
-    todoListHTML += html;
-  } 
-  taskEl.innerHTML = todoListHTML;
-}; */
-
 function addTodo() {
   const name = taskNameEl.value;
   todoList.push({
@@ -64,6 +46,13 @@ function addTodo() {
   renderTodoList();
   taskNameEl.value = '';
   taskNameEl.focus();
+  const taskAddedNameEl = document.querySelector('.task-name');
+  const taskCrossBtnEl = document.querySelector('.task-cross-btn');
+  const taskRemoveBtnEl = document.querySelector('.task-remove-btn');
+
+  taskCrossBtnEl.addEventListener('click', () => {
+    taskAddedNameEl.classList.add('task-name-cross');
+  });
 }
 
 taskAddBtnEl.addEventListener('click', () => {
