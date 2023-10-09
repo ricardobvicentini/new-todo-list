@@ -22,7 +22,8 @@ function renderTodoList() {
     <div class="task">
     <div class="task-name-wrapper"><span class="task-name">${name}</span></div>
     <a class="task-cross-btn">
-    <i class='bx bx-x-circle'></i>
+    <div class="cross-icon"><i class='bx bx-x-circle'></i></div>
+    <div class="undo-icon"><i class='bx bx-revision'></i></div>
     </a>
     <a class="task-remove-btn">
     <i class="bx bx-trash"></i>
@@ -34,6 +35,15 @@ function renderTodoList() {
 
   taskEl.innerHTML = todoListHTML;
 }
+
+/*    <div class='icons'>
+     <div class='icon-sun'>
+       <i class='bx bxs-sun'></i>
+     </div>
+     <div class='icon-moon'>
+       <i class='bx bxs-moon'></i>
+     </div>
+   </div>; */
 
 function addTodo() {
   const name = taskNameEl.value;
@@ -48,11 +58,14 @@ function addTodo() {
   taskNameEl.focus();
   const taskAddedNameEl = document.querySelector('.task-name');
   const taskCrossBtnEl = document.querySelector('.task-cross-btn');
+  const taskCrossIcon = document.querySelector('.cross-icon');
+  const taskUndoIcon = document.querySelector('.undo-icon');
   const taskRemoveBtnEl = document.querySelector('.task-remove-btn');
 
   taskCrossBtnEl.addEventListener('click', () => {
     taskAddedNameEl.classList.toggle('task-name-cross');
-    taskCrossBtnEl.innerHTML = "<i class='bx bx-revision'></i>";
+    taskCrossIcon.classList.toggle('hidden');
+    taskUndoIcon.classList.toggle('show');
   });
 }
 
