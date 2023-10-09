@@ -51,7 +51,8 @@ function addTodo() {
   const taskRemoveBtnEl = document.querySelector('.task-remove-btn');
 
   taskCrossBtnEl.addEventListener('click', () => {
-    taskAddedNameEl.classList.add('task-name-cross');
+    taskAddedNameEl.classList.toggle('task-name-cross');
+    taskCrossBtnEl.innerHTML = "<i class='bx bx-revision'></i>";
   });
 }
 

@@ -195,6 +195,14 @@ body {
   color: red;
 }
 
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (width > 600px) {
   .main-container {
     width: 40dvw;
