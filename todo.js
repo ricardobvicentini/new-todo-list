@@ -6,18 +6,15 @@ const listRemoveBtnEl = document.querySelector('.list-name-remove-btn');
 const taskNameEl = document.querySelector('.js-task-input');
 const qtyEl = document.querySelector('.js-task-qty');
 const taskAddBtnEl = document.querySelector('.task-input-add-btn');
-
 const taskEl = document.querySelector('.js-task');
 
 function renderTodoList() {
   let todoListHTML = '';
 
-  // FOR EACH
+  //* FOR EACH
 
-  todoList.forEach((todoObj) => {
+  todoList.forEach((todoObj, index) => {
     const name = todoObj.name;
-    // Destructuring
-    /* const { name, dueDate } = todoObj; */
     const html = `    
     <div class="task">
     <div class="task-name-wrapper"><span class="task-name">${name}</span></div>
@@ -25,7 +22,9 @@ function renderTodoList() {
     <div class="cross-icon"><i class='bx bx-x-circle'></i></div>
     <div class="undo-icon"><i class='bx bx-revision'></i></div>
     </a>
-    <a class="task-remove-btn">
+    <a class="task-remove-btn" onclick="
+        todoList.splice(${index}, 1);
+        renderTodoList()">
     <i class="bx bx-trash"></i>
     </a>
     </div>
@@ -36,66 +35,47 @@ function renderTodoList() {
   taskEl.innerHTML = todoListHTML;
 }
 
-/*    <div class='icons'>
-     <div class='icon-sun'>
-       <i class='bx bxs-sun'></i>
-     </div>
-     <div class='icon-moon'>
-       <i class='bx bxs-moon'></i>
-     </div>
-   </div>; */
+//* ADD TO LIST FUNCTION / FUNÇÃO PARA ADICIONAR TAREFA
 
 function addTodo() {
   const name = taskNameEl.value;
   todoList.push({
     name: name,
-    // Shorthand
-    /* name, 
-    dueDate */
   });
   renderTodoList();
   taskNameEl.value = '';
   taskNameEl.focus();
-  const taskAddedNameEl = document.querySelector('.task-name');
-  const taskCrossBtnEl = document.querySelector('.task-cross-btn');
-  const taskCrossIcon = document.querySelector('.cross-icon');
-  const taskUndoIcon = document.querySelector('.undo-icon');
-  const taskRemoveBtnEl = document.querySelector('.task-remove-btn');
+
+  //* ADD EVENTLISTENER TO EACH NEW ELEMENT / ADICIONAR EVENTLISTENER PARA CADA NOVO ELEMENTO CRIADO
+
+  const taskCrossBtnEls = document.querySelectorAll('.task-cross-btn');
+  taskCrossBtnEls.forEach((taskCrossBtnEl, index) => {
+    const taskAddedNameEl =
+      taskCrossBtnEl.parentElement.querySelector('.task-name');
+    const taskCrossIcon = taskCrossBtnEl.querySelector('.cross-icon');
+    const taskUndoIcon = taskCrossBtnEl.querySelector('.undo-icon');
+
+    taskCrossBtnEl.addEventListener('click', () => {
+      taskAddedNameEl.classList.toggle('task-name-cross');
+      taskCrossIcon.classList.toggle('hidden');
+      taskUndoIcon.classList.toggle('show');
+    });
+  });
+
+  /* const taskEls = taskEl.querySelectorAll('.task');
+  const latestTask = taskEls[taskEls.length + 1];
+  const taskAddedNameEl = latestTask.querySelector('.task-name');
+  const taskCrossBtnEl = latestTask.querySelector('.task-cross-btn');
+  const taskCrossIcon = latestTask.querySelector('.cross-icon');
+  const taskUndoIcon = latestTask.querySelector('.undo-icon');
 
   taskCrossBtnEl.addEventListener('click', () => {
     taskAddedNameEl.classList.toggle('task-name-cross');
     taskCrossIcon.classList.toggle('hidden');
     taskUndoIcon.classList.toggle('show');
-  });
+  }); */
 }
 
 taskAddBtnEl.addEventListener('click', () => {
   addTodo();
 });
-
-// Loops
-
-/*  let i = 1;
-
-while (i <= 5) {
-  console.log(i);
-  i++;
-}; */
-
-/* let i = 1
-
-do {
-  console.log(i);
-  i++;
-} while (i <= 6) */
-
-/* for (i = 1; i <= 7; i++) {
-  console.log(i);
-}; */
-
-/* let randomNum = 0;
-
-while (randomNum < 0.5) {
-  randomNum = Math.random();
-  console.log(randomNum);
-} */
