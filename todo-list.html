@@ -38,6 +38,7 @@
         />
         <input
           type="number"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
           class="js-task-qty task-qty"
           min="0"
           max="20"

@@ -74,8 +74,8 @@ body {
 /* MAIN */
 
 .main-container {
-  /* width: 80dvw; */
-  width: fit-content;
+  width: 80dvw;
+  /* width: fit-content; */
   height: 70dvh;
   background-image: linear-gradient(45deg, var(--m-cont), var(--m-cont-grad));
   border: 2px outset var(--border);
@@ -132,9 +132,9 @@ body {
 }
 
 .task-qty {
-  width: 40%;
+  width: 50%;
   height: 40%;
-  padding-left: 6%;
+  padding-left: 11.5%;
   border: 1px solid var(--text);
   border-radius: 5px;
   background-color: transparent;
