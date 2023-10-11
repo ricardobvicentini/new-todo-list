@@ -23,6 +23,7 @@
 
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 input,
@@ -39,7 +40,7 @@ body {
   background-image: linear-gradient(to bottom, var(--bg1), var(--bg1-grad));
   font-family: 'Poppins', sans-serif;
   width: 100dvw;
-  height: 100dvh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +74,8 @@ body {
 /* MAIN */
 
 .main-container {
-  width: 80dvw;
+  /* width: 80dvw; */
+  width: fit-content;
   height: 70dvh;
   background-image: linear-gradient(45deg, var(--m-cont), var(--m-cont-grad));
   border: 2px outset var(--border);
@@ -129,10 +131,21 @@ body {
   cursor: pointer;
 }
 
-.task-qty,
-.remove-task-qty {
+.task-qty {
   width: 40%;
   height: 40%;
+  padding-left: 6%;
+  border: 1px solid var(--text);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--text);
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.task-qty::-webkit-inner-spin-button,
+.task-qty::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* TASKS */
@@ -212,5 +225,13 @@ body {
 @media screen and (width > 600px) {
   .main-container {
     width: 40dvw;
+    /* width: fit-content; */
+  }
+}
+
+@media screen and (orientation: landscape) and (height < 365px) {
+  .main-container {
+    /* width: 40dvw; */
+    width: fit-content;
   }
 }
