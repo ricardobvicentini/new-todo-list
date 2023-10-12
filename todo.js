@@ -62,6 +62,9 @@ function addTodo() {
     });
   });
 
+  //* REMOVE TASK MODAL / MODAL PARA REMOÇÃO DE TAREFA
+  const taskRemoveBtnEl = document.querySelector('.task-remove-btn');
+
   /* const taskEls = taskEl.querySelectorAll('.task');
   const latestTask = taskEls[taskEls.length + 1];
   const taskAddedNameEl = latestTask.querySelector('.task-name');
