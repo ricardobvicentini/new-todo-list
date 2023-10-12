@@ -223,15 +223,41 @@ body {
 }
 
 @media screen and (width > 600px) {
+  html {
+    font-size: 35%;
+  }
   .main-container {
     width: 40dvw;
-    /* width: fit-content; */
   }
 }
 
-@media screen and (orientation: landscape) and (height < 365px) {
+@media screen and (orientation: landscape) and (height < 500px) {
   .main-container {
-    /* width: 40dvw; */
-    width: fit-content;
+    width: 80%;
+    flex-flow: row;
+  }
+
+  .input-container {
+    border-radius: 1rem;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 0.5fr);
+    place-items: center;
+  }
+
+  .list-name,
+  .task-input {
+    border: 1px solid red;
+    width: 90%;
+    font-size: clamp(1rem, 3vw, 2rem);
+    background-color: transparent;
+    color: var(--text);
+    padding-inline: 1rem;
+    border-bottom: 1px solid var(--text);
+  }
+
+  .task-container {
+    border-radius: 1rem;
+    height: 90%;
   }
 }
