@@ -134,7 +134,7 @@ body {
 .task-qty {
   width: 50%;
   height: 40%;
-  padding-left: 11.5%;
+  padding-left: 0.9vw;
   border: 1px solid var(--text);
   border-radius: 5px;
   background-color: transparent;
