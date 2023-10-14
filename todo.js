@@ -38,13 +38,18 @@ function renderTodoList() {
 //* ADD TO LIST FUNCTION / FUNÇÃO PARA ADICIONAR TAREFA
 
 function addTodo() {
-  const name = taskNameEl.value;
-  todoList.push({
-    name: name,
-  });
-  renderTodoList();
-  taskNameEl.value = '';
-  taskNameEl.focus();
+  if (taskNameEl.value === '') {
+    taskNameEl.placeholder = 'Enter task';
+  } else {
+    taskNameEl.placeholder = 'Task';
+    const name = taskNameEl.value;
+    todoList.push({
+      name: name,
+    });
+    renderTodoList();
+    taskNameEl.value = '';
+    taskNameEl.focus();
+  }
 
   //* ADD EVENTLISTENER TO EACH NEW ELEMENT / ADICIONAR EVENTLISTENER PARA CADA NOVO ELEMENTO CRIADO
 
