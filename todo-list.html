@@ -56,14 +56,25 @@
         </div>
       </section>
     </main>
+
     <!-- Modals -->
-    <div class="task-remove-modal modal--hidden">
-      <h1>Do you really want to remove this task?</h1>
-      <div class="y-n-btn">
-        <button class="remove-confirm yes-btn">Yes</button>
-        <button class="remove-confirm no-btn">No</button>
+
+    <div class="overlay hidden">
+      <div class="task-remove-modal hidden">
+        <h1>Do you really want to remove this task?</h1>
+        <div class="y-n-btn">
+          <button class="remove-confirm yes-btn">Yes</button>
+          <button class="remove-confirm no-btn">No</button>
+        </div>
+      </div>
+
+      <div class="list-remove-modal hidden">
+        <h1>Do you really want to remove this list?</h1>
+        <div class="y-n-btn">
+          <button class="remove-confirm yes-btn">Yes</button>
+          <button class="remove-confirm no-btn">No</button>
+        </div>
       </div>
     </div>
-    <div class="overlay overlay--hidden"></div>
   </body>
 </html>

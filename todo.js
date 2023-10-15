@@ -17,7 +17,7 @@ function renderTodoList() {
     const name = todoObj.name;
     const html = `    
     <div class="task">
-    <div class="task-name-wrapper"><span class="task-name">${name}</span></div>
+    <div class="task-name-wrapper"><span class="task-name">${name.toLowerCase()}</span></div>
     <a class="task-cross-btn">
     <div class="cross-icon"><i class='bx bx-x-circle'></i></div>
     <div class="undo-icon"><i class='bx bx-revision'></i></div>
@@ -69,8 +69,14 @@ function addTodo() {
 
   //* REMOVE TASK MODAL / MODAL PARA REMOÇÃO DE TAREFA
   const taskRemoveBtnEl = document.querySelector('.task-remove-btn');
+  const overlayEl = document.querySelector('.overlay');
+  const taskRemoveModalEl = document.querySelector('.task-remove-modal');
+  taskRemoveBtnEl.addEventListener('click', () => {
+    overlayEl.classList.remove('hidden');
+    taskRemoveModalEl.classList.remove('hidden');
+  });
 
-  /* const taskEls = taskEl.querySelectorAll('.task');
+  /*  const taskEls = taskEl.querySelectorAll('.task');
   const latestTask = taskEls[taskEls.length + 1];
   const taskAddedNameEl = latestTask.querySelector('.task-name');
   const taskCrossBtnEl = latestTask.querySelector('.task-cross-btn');
