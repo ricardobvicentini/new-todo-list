@@ -7,6 +7,9 @@ const taskNameEl = document.querySelector('.js-task-input');
 const qtyEl = document.querySelector('.js-task-qty');
 const taskAddBtnEl = document.querySelector('.task-input-add-btn');
 const taskEl = document.querySelector('.js-task');
+let overlayEl;
+let taskRemoveModalEl;
+let taskRemoveBtnEls;
 
 function renderTodoList() {
   let todoListHTML = '';
@@ -23,7 +26,7 @@ function renderTodoList() {
     <div class="undo-icon"><i class='bx bx-revision'></i></div>
     </a>
     <a class="task-remove-btn" onclick="
-        todoList.splice(${index}, 1);
+    todoList.splice(${index}, 1);
         renderTodoList()">
     <i class="bx bx-trash"></i>
     </a>
@@ -36,7 +39,6 @@ function renderTodoList() {
 }
 
 //* ADD TO LIST FUNCTION / FUNÇÃO PARA ADICIONAR TAREFA
-
 function addTodo() {
   if (taskNameEl.value === '') {
     taskNameEl.placeholder = 'Enter task';
@@ -52,6 +54,7 @@ function addTodo() {
   }
 
   //* ADD EVENTLISTENER TO EACH NEW ELEMENT / ADICIONAR EVENTLISTENER PARA CADA NOVO ELEMENTO CRIADO
+  // Elements / Elementos
 
   const taskCrossBtnEls = document.querySelectorAll('.task-cross-btn');
   taskCrossBtnEls.forEach((taskCrossBtnEl, index) => {
@@ -60,6 +63,7 @@ function addTodo() {
     const taskCrossIcon = taskCrossBtnEl.querySelector('.cross-icon');
     const taskUndoIcon = taskCrossBtnEl.querySelector('.undo-icon');
 
+    // Functions / Funções
     taskCrossBtnEl.addEventListener('click', () => {
       taskAddedNameEl.classList.toggle('task-name-cross');
       taskCrossIcon.classList.toggle('hidden');
@@ -68,27 +72,32 @@ function addTodo() {
   });
 
   //* REMOVE TASK MODAL / MODAL PARA REMOÇÃO DE TAREFA
-  const taskRemoveBtnEl = document.querySelector('.task-remove-btn');
-  const overlayEl = document.querySelector('.overlay');
-  const taskRemoveModalEl = document.querySelector('.task-remove-modal');
-  taskRemoveBtnEl.addEventListener('click', () => {
-    overlayEl.classList.remove('hidden');
-    taskRemoveModalEl.classList.remove('hidden');
+  // Elements / Elementos
+  taskRemoveBtnEls = document.querySelectorAll('.task-remove-btn');
+  overlayEl = document.querySelector('.overlay');
+  taskRemoveModalEl = document.querySelector('.task-remove-modal');
+
+  // Functions / Funções
+  taskRemoveBtnEls.forEach((taskRemoveBtnEl) => {
+    taskRemoveBtnEl.addEventListener('click', () => {
+      overlayEl.classList.remove('hidden');
+      taskRemoveModalEl.classList.remove('hidden');
+    });
   });
-
-  /*  const taskEls = taskEl.querySelectorAll('.task');
-  const latestTask = taskEls[taskEls.length + 1];
-  const taskAddedNameEl = latestTask.querySelector('.task-name');
-  const taskCrossBtnEl = latestTask.querySelector('.task-cross-btn');
-  const taskCrossIcon = latestTask.querySelector('.cross-icon');
-  const taskUndoIcon = latestTask.querySelector('.undo-icon');
-
-  taskCrossBtnEl.addEventListener('click', () => {
-    taskAddedNameEl.classList.toggle('task-name-cross');
-    taskCrossIcon.classList.toggle('hidden');
-    taskUndoIcon.classList.toggle('show');
-  }); */
 }
+
+const noRemoveBtnEl = document.querySelector('.no-btn');
+const yesRemoveBtnEl = document.querySelector('.yes-btn');
+
+noRemoveBtnEl.addEventListener('click', () => {
+  overlayEl.classList.add('hidden');
+  taskRemoveModalEl.classList.add('hidden');
+});
+
+yesRemoveBtnEl.addEventListener('click', () => {
+  overlayEl.classList.add('hidden');
+  taskRemoveModalEl.classList.add('hidden');
+});
 
 taskAddBtnEl.addEventListener('click', () => {
   addTodo();

@@ -253,6 +253,11 @@ body {
   justify-content: space-evenly;
 }
 
+.yes-btn,
+.no-btn {
+  cursor: pointer;
+}
+
 .remove-confirm {
   background: none;
   border: 2px solid var(--text);
