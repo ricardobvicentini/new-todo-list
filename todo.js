@@ -7,6 +7,7 @@ const taskNameEl = document.querySelector('.js-task-input');
 const qtyEl = document.querySelector('.js-task-qty');
 const taskAddBtnEl = document.querySelector('.task-input-add-btn');
 const taskEl = document.querySelector('.js-task');
+const listRemoveModalEl = document.querySelector('.list-remove-modal');
 let overlayEl;
 let taskRemoveModalEl;
 let taskRemoveBtnEls;
@@ -84,21 +85,22 @@ function addTodo() {
       taskRemoveModalEl.classList.remove('hidden');
     });
   });
+
+  const noRemoveBtnEl = document.querySelector('.no-btn');
+  const yesRemoveBtnEl = document.querySelector('.yes-btn');
+
+  noRemoveBtnEl.addEventListener('click', () => {
+    overlayEl.classList.add('hidden');
+    taskRemoveModalEl.classList.add('hidden');
+  });
+
+  yesRemoveBtnEl.addEventListener('click', () => {
+    overlayEl.classList.add('hidden');
+    taskRemoveModalEl.classList.add('hidden');
+  });
 }
 
-const noRemoveBtnEl = document.querySelector('.no-btn');
-const yesRemoveBtnEl = document.querySelector('.yes-btn');
-
-noRemoveBtnEl.addEventListener('click', () => {
-  overlayEl.classList.add('hidden');
-  taskRemoveModalEl.classList.add('hidden');
-});
-
-yesRemoveBtnEl.addEventListener('click', () => {
-  overlayEl.classList.add('hidden');
-  taskRemoveModalEl.classList.add('hidden');
-});
-
+// EVENT HANDLER
 taskAddBtnEl.addEventListener('click', () => {
   addTodo();
 });
