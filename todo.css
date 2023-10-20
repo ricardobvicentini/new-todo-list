@@ -120,6 +120,7 @@ body {
 .save-btn,
 .list-name-remove-btn,
 .task-input-add-btn,
+.task-input-reset-btn,
 .task-remove-btn,
 .task-cross-btn,
 .cross-icon,
@@ -128,23 +129,6 @@ body {
   text-transform: uppercase;
   color: var(--text);
   cursor: pointer;
-}
-
-.task-qty {
-  width: 50%;
-  height: 40%;
-  padding-left: 0.9vw;
-  border: 1px solid var(--text);
-  border-radius: 5px;
-  background-color: transparent;
-  color: var(--text);
-  font-size: clamp(1rem, 3vw, 2rem);
-}
-
-.task-qty::-webkit-inner-spin-button,
-.task-qty::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 /* TASKS */
@@ -203,6 +187,7 @@ body {
 
 .task-name-cross {
   text-decoration: line-through;
+  font-style: italic;
   color: red;
 }
 

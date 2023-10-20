@@ -36,14 +36,7 @@
           max="25"
           placeholder="Task"
         />
-        <input
-          type="number"
-          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-          class="js-task-qty task-qty"
-          min="0"
-          max="20"
-          maxlength="2"
-        />
+        <a class="task-input-reset-btn"><i class="bx bx-reset"></i></a>
         <a class="task-input-add-btn">
           <i class="bx bx-plus-circle"></i>
         </a>
