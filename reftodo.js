@@ -43,7 +43,7 @@ const saveTask = function (taskInput) {
 
   const crossIcon = document.createElement('div');
   crossIcon.classList.add('cross-icon');
-  crossIcon.innerHTML = '<i class="bx bx-x-circle"></i></div>';
+  crossIcon.innerHTML = '<i class="bx bx-check-circle"></i>';
   taskCrossBtn.appendChild(crossIcon);
 
   const undoIcon = document.createElement('div');
@@ -68,6 +68,7 @@ taskAddBtn.addEventListener('click', () => {
   const taskInputValue = taskName.value;
   if (taskInputValue) {
     saveTask(taskInputValue);
+    taskName.placeholder = 'Task';
   } else {
     taskName.placeholder = 'Enter task';
   }
