@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
     <link rel="stylesheet" href="todo.css" />
-    <script src="todo.js" defer></script>
+    <!-- <script src="todo.js" defer></script> -->
+    <script src="reftodo.js" defer></script>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -19,23 +20,13 @@
 
     <main class="main-container">
       <section class="input-container">
-        <input
-          type="text"
-          class="js-list-name list-name"
-          max="25"
-          placeholder="List name"
-        />
+        <input type="text" class="list-name" max="25" placeholder="List name" />
         <a class="save-btn"><i class="bx bxs-folder-plus"></i></a>
         <a class="list-name-remove-btn">
           <i class="bx bx-trash"></i>
         </a>
         <!-- Input task -->
-        <input
-          type="text"
-          class="js-task-input task-input"
-          max="25"
-          placeholder="Task"
-        />
+        <input type="text" class="task-input" max="25" placeholder="Task" />
         <a class="task-input-reset-btn"><i class="bx bx-reset"></i></a>
         <a class="task-input-add-btn">
           <i class="bx bx-plus-circle"></i>
@@ -43,9 +34,21 @@
       </section>
 
       <!-- Task section -->
+
       <section class="task-container">
-        <div class="js-task task-wrapper">
-          <div class="task"></div>
+        <div class="task-wrapper">
+          <div class="task">
+            <div class="task-name-wrapper">
+              <span class="task-name">Banana</span>
+            </div>
+            <a class="task-cross-btn">
+              <div class="cross-icon"><i class="bx bx-x-circle"></i></div>
+              <div class="undo-icon"><i class="bx bx-revision"></i></div>
+            </a>
+            <a class="task-remove-btn">
+              <i class="bx bx-trash"></i>
+            </a>
+          </div>
         </div>
       </section>
     </main>
