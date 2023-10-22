@@ -19,10 +19,16 @@ const taskContainer = document.querySelector('.task-container');
 const taskWrapper = document.querySelector('.task-wrapper');
 //* Modals
 //* Modais
-const listRemoveModal = document.querySelector('.list-remove-modal');
+const overlay = document.querySelector('.overlay');
+const taskRemoveModal = document.querySelector('.task-remove-modal');
+const removeTaskYesBtn = document.querySelector('.remove-confirm.yes-btn');
+const removeTaskNoBtn = document.querySelector('.remove-confirm.no-btn');
 
 //* Functions
 //* Funções
+
+// Save task function
+// Função salvar tarefa
 const saveTask = function (taskInput) {
   const task = document.createElement('div');
   task.classList.add('task');
@@ -59,6 +65,13 @@ const saveTask = function (taskInput) {
   taskContainer.appendChild(taskWrapper);
 };
 
+// Show remove modal
+// Exibir modal de remoção
+const removeModal = () => {
+  overlay.classList.toggle('hidden');
+  taskRemoveModal.classList.toggle('hidden');
+};
+
 //* Events Handlers
 //* Eventos
 // Add task
@@ -87,7 +100,8 @@ document.addEventListener('click', (event) => {
   const parentEl = targetEl.closest('div');
   const parentFirstChild = targetEl.previousSibling;
   if (targetEl.classList.contains('task-remove-btn')) {
-    parentEl.remove();
+    removeModal();
+    /* parentEl.remove(); */
   }
   if (targetEl.classList.contains('task-cross-btn')) {
     parentFirstChild
@@ -96,4 +110,10 @@ document.addEventListener('click', (event) => {
     targetEl.querySelector('.cross-icon').classList.toggle('hidden');
     targetEl.querySelector('.undo-icon').classList.toggle('show');
   }
+});
+
+// Remove confirm - No
+// Confirmar remoção - Não
+removeTaskNoBtn.addEventListener('click', () => {
+  removeModal();
 });
