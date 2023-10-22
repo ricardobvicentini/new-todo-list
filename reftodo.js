@@ -49,7 +49,7 @@ const saveTask = function (taskInput) {
   const undoIcon = document.createElement('div');
   undoIcon.classList.add('undo-icon');
   undoIcon.innerHTML = '<i class="bx bx-revision"></i></div>';
-  taskCrossBtn.appendChild(crossIcon);
+  taskCrossBtn.appendChild(undoIcon);
 
   const taskRemoveBtn = document.createElement('a');
   taskRemoveBtn.classList.add('task-remove-btn');
@@ -84,14 +84,16 @@ document.addEventListener('click', (event) => {
   // Create variable for event target and parents and siblings
   // Criar variável para o alvo do evento e pais e irmãos
   const targetEl = event.target;
-  console.log(targetEl);
   const parentEl = targetEl.closest('div');
   const parentFirstChild = targetEl.previousSibling;
   if (targetEl.classList.contains('task-remove-btn')) {
     parentEl.remove();
   }
   if (targetEl.classList.contains('task-cross-btn')) {
-    const nameCross = parentFirstChild.querySelector('.task-name');
-    console.log(nameCross);
+    parentFirstChild
+      .querySelector('.task-name')
+      .classList.toggle('task-name-cross');
+    targetEl.querySelector('.cross-icon').classList.toggle('hidden');
+    targetEl.querySelector('.undo-icon').classList.toggle('show');
   }
 });
