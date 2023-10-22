@@ -26,6 +26,10 @@ html {
   height: 100%;
 }
 
+i {
+  pointer-events: none;
+}
+
 input,
 button {
   background-color: none;
@@ -132,6 +136,11 @@ body {
   cursor: pointer;
 }
 
+.cross-icon,
+.undo-icon {
+  pointer-events: none;
+}
+
 /* TASKS */
 
 .task-container {
@@ -174,6 +183,7 @@ body {
 }
 
 .task-name-wrapper {
+  border: 1px solid red;
   border-bottom: 1px solid var(--text);
   width: 90%;
 }

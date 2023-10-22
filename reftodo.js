@@ -61,7 +61,6 @@ const saveTask = function (taskInput) {
 
 //* Events Handlers
 //* Eventos
-
 // Add task
 // Adicionar tarefa
 taskAddBtn.addEventListener('click', () => {
@@ -74,4 +73,25 @@ taskAddBtn.addEventListener('click', () => {
   }
   taskName.value = '';
   taskName.focus();
+});
+
+// Remove task
+// Remover tarefa
+
+// Assign click for the whole document, then identify the event target
+// Atribuir click para o documento todo e identificar o alvo do evento
+document.addEventListener('click', (event) => {
+  // Create variable for event target and parents and siblings
+  // Criar variável para o alvo do evento e pais e irmãos
+  const targetEl = event.target;
+  console.log(targetEl);
+  const parentEl = targetEl.closest('div');
+  const parentFirstChild = targetEl.previousSibling;
+  if (targetEl.classList.contains('task-remove-btn')) {
+    parentEl.remove();
+  }
+  if (targetEl.classList.contains('task-cross-btn')) {
+    const nameCross = parentFirstChild.querySelector('.task-name');
+    console.log(nameCross);
+  }
 });
