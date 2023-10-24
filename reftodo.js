@@ -99,10 +99,7 @@ document.addEventListener('click', (event) => {
   const targetEl = event.target;
   const parentEl = targetEl.closest('div');
   const parentFirstChild = targetEl.previousSibling;
-  if (targetEl.classList.contains('task-remove-btn')) {
-    removeModal();
-    /* parentEl.remove(); */
-  }
+  console.log(targetEl, parentEl);
   if (targetEl.classList.contains('task-cross-btn')) {
     parentFirstChild
       .querySelector('.task-name')
@@ -110,10 +107,14 @@ document.addEventListener('click', (event) => {
     targetEl.querySelector('.cross-icon').classList.toggle('hidden');
     targetEl.querySelector('.undo-icon').classList.toggle('show');
   }
-});
-
-// Remove confirm - No
-// Confirmar remoção - Não
-removeTaskNoBtn.addEventListener('click', () => {
-  removeModal();
+  if (targetEl.classList.contains('task-remove-btn')) {
+    removeModal();
+  }
+  if (targetEl.classList.contains('no-btn')) {
+    removeModal();
+  }
+  if (targetEl.classList.contains('yes-btn')) {
+    /* removeModal();
+    parentEl.querySelector('.task').remove(); */
+  }
 });
