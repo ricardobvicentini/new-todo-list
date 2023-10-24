@@ -114,7 +114,7 @@ document.addEventListener('click', (event) => {
     removeModal();
   }
   if (targetEl.classList.contains('yes-btn')) {
-    /* removeModal();
-    parentEl.querySelector('.task').remove(); */
+    removeModal();
+    parentEl.querySelector('.task').remove();
   }
 });
