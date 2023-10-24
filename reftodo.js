@@ -97,7 +97,7 @@ document.addEventListener('click', (event) => {
   // Create variable for event target and parents and siblings
   // Criar variável para o alvo do evento e pais e irmãos
   const targetEl = event.target;
-  const parentEl = targetEl.closest('div');
+  const parentEl = targetEl.closest('.task');
   const parentFirstChild = targetEl.previousSibling;
   console.log(targetEl, parentEl);
   if (targetEl.classList.contains('task-cross-btn')) {
@@ -115,6 +115,5 @@ document.addEventListener('click', (event) => {
   }
   if (targetEl.classList.contains('yes-btn')) {
     removeModal();
-    parentEl.querySelector('.task').remove();
   }
 });
