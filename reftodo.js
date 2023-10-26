@@ -99,7 +99,6 @@ document.addEventListener('click', (event) => {
   const targetEl = event.target;
   const parentEl = targetEl.closest('div');
   const parentFirstChild = targetEl.previousSibling;
-  /* console.log(targetEl, parentEl); */
   if (targetEl.classList.contains('task-cross-btn')) {
     parentFirstChild
       .querySelector('.task-name')
@@ -108,13 +107,15 @@ document.addEventListener('click', (event) => {
     targetEl.querySelector('.undo-icon').classList.toggle('show');
   }
   if (targetEl.classList.contains('task-remove-btn')) {
+    parentEl.classList.add('chosen');
     removeModal();
   }
   if (targetEl.classList.contains('no-btn')) {
+    document.querySelector('.chosen').classList.remove('chosen');
     removeModal();
   }
   if (targetEl.classList.contains('yes-btn')) {
-    console.log(targetEl, targetEl.closest('div'));
-    /* removeModal(); */
+    document.querySelector('.chosen').remove();
+    removeModal();
   }
 });
