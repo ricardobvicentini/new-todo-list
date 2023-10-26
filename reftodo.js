@@ -49,17 +49,17 @@ const saveTask = function (taskInput) {
 
   const crossIcon = document.createElement('div');
   crossIcon.classList.add('cross-icon');
-  crossIcon.innerHTML = '<i class="bx bx-check-circle"></i>';
+  crossIcon.innerHTML = '<i class="bx bx-check-circle" tabindex="0"></i>';
   taskCrossBtn.appendChild(crossIcon);
 
   const undoIcon = document.createElement('div');
   undoIcon.classList.add('undo-icon');
-  undoIcon.innerHTML = '<i class="bx bx-revision"></i></div>';
+  undoIcon.innerHTML = '<i class="bx bx-revision" tabindex="0"></i></div>';
   taskCrossBtn.appendChild(undoIcon);
 
   const taskRemoveBtn = document.createElement('a');
   taskRemoveBtn.classList.add('task-remove-btn');
-  taskRemoveBtn.innerHTML = '<i class="bx bx-trash"></i>';
+  taskRemoveBtn.innerHTML = '<i class="bx bx-trash" tabindex="0"></i>';
   task.appendChild(taskRemoveBtn);
 
   taskContainer.appendChild(taskWrapper);
