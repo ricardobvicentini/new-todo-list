@@ -88,6 +88,13 @@ taskAddBtn.addEventListener('click', () => {
   taskName.focus();
 });
 
+// Reset task
+// Reiniciar tarefa
+taskResetBtn.addEventListener('click', () => {
+  taskName.value = '';
+  taskName.focus();
+});
+
 // Remove task
 // Remover tarefa
 
