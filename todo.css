@@ -233,12 +233,26 @@ body {
   justify-content: space-evenly;
   align-items: center;
   z-index: 10;
+  animation: fadeIn 500ms forwards;
 }
 
 .task-remove-modal h1,
 .list-remove-modal h1 {
   font-size: clamp(1rem, 4vw, 3rem);
   color: var(--text);
+}
+
+@keyframes fadeIn {
+  from {
+    scale: 1.1;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    backdrop-filter: blur(0);
+    opacity: 1;
+  }
 }
 
 .y-n-btn {
