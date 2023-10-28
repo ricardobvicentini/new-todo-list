@@ -64,6 +64,10 @@ const saveTask = function (taskInput) {
   task.appendChild(taskRemoveBtn);
 
   taskContainer.appendChild(taskWrapper);
+  // Create a deep copy of the task
+  // Criar cópia profunda de task
+  const taskClone = task.cloneNode(true);
+  taskWrapperModal.appendChild(taskClone);
 };
 
 // Show/Hide overlay/modals
@@ -115,7 +119,6 @@ document.addEventListener('click', (event) => {
     targetEl.querySelector('.undo-icon').classList.toggle('show');
   }
   if (targetEl.classList.contains('task-remove-btn')) {
-    console.log(parentEl);
     parentEl.classList.add('chosen');
     toggleModal(taskRemoveModal);
   }
@@ -127,7 +130,13 @@ document.addEventListener('click', (event) => {
     document.querySelector('.chosen').remove();
     toggleModal(taskRemoveModal);
   }
-  if (targetEl.classList.contains('save-btn')) {
+});
+
+saveBtn.addEventListener('click', () => {
+  if (listName.value) {
     toggleModal(taskWrapperModal);
+    listName.placeholder = 'List name';
+  } else {
+    listName.placeholder = 'Enter list name';
   }
 });
