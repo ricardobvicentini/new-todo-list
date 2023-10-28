@@ -23,6 +23,7 @@ const overlay = document.querySelector('.overlay');
 const taskRemoveModal = document.querySelector('.task-remove-modal');
 const removeTaskYesBtn = document.querySelector('.remove-confirm.yes-btn');
 const removeTaskNoBtn = document.querySelector('.remove-confirm.no-btn');
+const taskWrapperModal = document.querySelector('.task-wrapper-modal');
 
 //* Functions
 //* Funções
@@ -65,11 +66,11 @@ const saveTask = function (taskInput) {
   taskContainer.appendChild(taskWrapper);
 };
 
-// Show remove modal
-// Exibir modal de remoção
-const removeModal = () => {
+// Show/Hide overlay/modals
+// Exibir/Esconder overlay/modais
+const toggleModal = (modal) => {
   overlay.classList.toggle('hidden');
-  taskRemoveModal.classList.toggle('hidden');
+  modal.classList.toggle('hidden');
 };
 
 //* Events Handlers
@@ -114,15 +115,19 @@ document.addEventListener('click', (event) => {
     targetEl.querySelector('.undo-icon').classList.toggle('show');
   }
   if (targetEl.classList.contains('task-remove-btn')) {
+    console.log(parentEl);
     parentEl.classList.add('chosen');
-    removeModal();
+    toggleModal(taskRemoveModal);
   }
   if (targetEl.classList.contains('no-btn')) {
     document.querySelector('.chosen').classList.remove('chosen');
-    removeModal();
+    toggleModal(taskRemoveModal);
   }
   if (targetEl.classList.contains('yes-btn')) {
     document.querySelector('.chosen').remove();
-    removeModal();
+    toggleModal(taskRemoveModal);
+  }
+  if (targetEl.classList.contains('save-btn')) {
+    toggleModal(taskWrapperModal);
   }
 });

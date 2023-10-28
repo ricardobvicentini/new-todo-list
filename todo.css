@@ -276,6 +276,27 @@ body {
   font-weight: 700;
 }
 
+.task-wrapper-modal {
+  position: absolute;
+  width: 50%;
+  max-width: 50rem;
+  height: 50%;
+  max-height: 20rem;
+  /* background-image: linear-gradient(45deg, var(--m-cont), var(--m-cont-grad)); */
+  background-color: var(--m-cont-grad);
+  border: 2px outset var(--border);
+  display: grid;
+  grid-template-columns: 2fr repeat(2, 0.5fr);
+  grid-template-rows: auto;
+  place-items: center;
+  border-radius: 2rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 5px 10px #00000050;
+  z-index: 10;
+  animation: fadeIn 500ms forwards;
+}
+
 .overlay {
   position: absolute;
   top: 0;
