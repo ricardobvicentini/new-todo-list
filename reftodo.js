@@ -135,8 +135,12 @@ document.addEventListener('click', (event) => {
 saveBtn.addEventListener('click', () => {
   if (listName.value) {
     toggleModal(taskWrapperModal);
+    taskWrapperModal.insertAdjacentHTML(
+      'afterbegin',
+      `<h3>${listName.value}</h3>`
+    );
     listName.placeholder = 'List name';
   } else {
-    listName.placeholder = 'Enter list name';
+    listName.placeholder = 'Enter task';
   }
 });
