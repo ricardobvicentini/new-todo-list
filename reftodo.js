@@ -66,7 +66,7 @@ const saveTask = function (taskInput) {
   taskContainer.appendChild(taskWrapper);
   // Create a deep copy of the task
   // Criar cópia profunda de task
-  const taskClone = task.cloneNode(true);
+  const taskClone = taskName.cloneNode(true);
   taskWrapperModal.appendChild(taskClone);
 };
 
