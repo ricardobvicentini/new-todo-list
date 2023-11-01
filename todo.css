@@ -276,6 +276,8 @@ body {
   font-weight: 700;
 }
 
+/* Task Wrapper List */
+
 .task-wrapper-modal {
   position: absolute;
   width: 40%;
@@ -301,12 +303,31 @@ body {
   flex-direction: column;
 }
 
-h3 {
+.task-wrapper-modal h3 {
   font-size: clamp(1rem, 3vw, 2rem);
   color: var(--text);
   text-transform: uppercase;
   text-decoration: underline;
 }
+
+.task-wrapper-modal div {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  > button {
+    background: none;
+    border: 2px solid var(--text);
+    border-radius: 1rem;
+    padding: 2% 3%;
+    font-size: clamp(0.75rem, 3vw, 2rem);
+    color: var(--text);
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+/* UTILITY CLASSES - CLASSES UTILITÁRIAS - SHOW/HIDDEN */
 
 .overlay {
   position: absolute;
@@ -321,8 +342,6 @@ h3 {
   backdrop-filter: blur(3px);
   z-index: 5;
 }
-
-/* UTILITY CLASSES - CLASSES UTILITÁRIAS - SHOW/HIDDEN */
 
 .show {
   display: block;

@@ -132,6 +132,8 @@ document.addEventListener('click', (event) => {
   }
 });
 
+let taskWrapperModalBtns;
+
 saveBtn.addEventListener('click', () => {
   if (listName.value) {
     toggleModal(taskWrapperModal);
@@ -141,6 +143,11 @@ saveBtn.addEventListener('click', () => {
       'afterbegin',
       `<h3>${listName.value}</h3>`
     );
+    taskWrapperModalBtns = taskWrapperModal.insertAdjacentHTML(
+      'beforeend',
+      `<div><button>Save</button><button>Edit</button></div>`
+    );
+
     listName.placeholder = 'List name';
   } else {
     listName.placeholder = 'Enter list name';
