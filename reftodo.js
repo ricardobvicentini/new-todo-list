@@ -66,7 +66,7 @@ const saveTask = function (taskInput) {
   taskContainer.appendChild(taskWrapper);
   // Create a deep copy of the task
   // Criar cópia profunda de task
-  const taskClone = taskName.cloneNode(true);
+  const taskClone = task.cloneNode(true);
   taskWrapperModal.appendChild(taskClone);
 };
 
@@ -135,12 +135,14 @@ document.addEventListener('click', (event) => {
 saveBtn.addEventListener('click', () => {
   if (listName.value) {
     toggleModal(taskWrapperModal);
+    const modalBtns = taskWrapperModal.querySelectorAll('a');
+    modalBtns.forEach((btn) => btn.remove());
     taskWrapperModal.insertAdjacentHTML(
       'afterbegin',
       `<h3>${listName.value}</h3>`
     );
     listName.placeholder = 'List name';
   } else {
-    listName.placeholder = 'Enter task';
+    listName.placeholder = 'Enter list name';
   }
 });

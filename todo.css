@@ -277,7 +277,6 @@ body {
 }
 
 .task-wrapper-modal {
-  border: 1px solid red;
   position: absolute;
   width: 40%;
   height: 50%;
@@ -295,6 +294,11 @@ body {
   box-shadow: 0 5px 10px #00000050;
   z-index: 10;
   animation: fadeIn 500ms forwards;
+}
+
+.task-wrapper-modal .task {
+  display: flex;
+  flex-direction: column;
 }
 
 h3 {
