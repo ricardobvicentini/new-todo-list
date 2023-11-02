@@ -132,21 +132,36 @@ document.addEventListener('click', (event) => {
   }
 });
 
-let taskWrapperModalBtns;
+let originalListContent = '';
+
+const addTaskList = function () {
+  toggleModal(taskWrapperModal);
+  const modalBtns = taskWrapperModal.querySelectorAll('a');
+  modalBtns.forEach((btn) => btn.remove());
+  taskWrapperModal.insertAdjacentHTML(
+    'afterbegin',
+    `<h3>${listName.value}</h3>`
+  );
+
+  originalListContent = taskWrapperModal.innerHTML;
+
+  taskWrapperModal.insertAdjacentHTML(
+    'beforeend',
+    `<div><button class="save-list-btn">Save</button><button class="edit-list-btn">Edit</button></div>`
+  );
+
+  const saveListBtn = taskWrapperModal.querySelector('.save-list-btn');
+  const editListBtn = taskWrapperModal.querySelector('.edit-list-btn');
+  editListBtn.addEventListener('click', () => {
+    toggleModal(taskWrapperModal);
+    taskWrapperModal.innerHTML = originalListContent;
+    listName.value = '';
+  });
+};
 
 saveBtn.addEventListener('click', () => {
   if (listName.value) {
-    toggleModal(taskWrapperModal);
-    const modalBtns = taskWrapperModal.querySelectorAll('a');
-    modalBtns.forEach((btn) => btn.remove());
-    taskWrapperModal.insertAdjacentHTML(
-      'afterbegin',
-      `<h3>${listName.value}</h3>`
-    );
-    taskWrapperModalBtns = taskWrapperModal.insertAdjacentHTML(
-      'beforeend',
-      `<div><button>Save</button><button>Edit</button></div>`
-    );
+    addTaskList();
 
     listName.placeholder = 'List name';
   } else {
