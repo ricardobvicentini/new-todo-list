@@ -155,7 +155,7 @@ const addTaskList = function () {
   editListBtn.addEventListener('click', () => {
     toggleModal(taskWrapperModal);
     taskWrapperModal.innerHTML = originalListContent;
-    listName.value = '';
+    taskWrapperModal.querySelector('h3').innerHTML = '';
   });
 };
 
