@@ -355,7 +355,7 @@ body {
 
 @media screen and (width > 600px) {
   .main-container {
-    width: 40dvw;
+    width: 30dvw;
   }
 
   .task-wrapper-modal {

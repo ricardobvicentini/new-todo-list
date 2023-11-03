@@ -155,16 +155,26 @@ const addTaskList = function () {
   editListBtn.addEventListener('click', () => {
     toggleModal(taskWrapperModal);
     taskWrapperModal.innerHTML = originalListContent;
-    taskWrapperModal.querySelector('h3').innerHTML = '';
+    taskWrapperModal.querySelector('h3').remove();
+  });
+
+  //! Fix here
+  saveListBtn.addEventListener('click', () => {
+    toggleModal(taskWrapperModal);
+    taskWrapperModal.querySelector('h3').remove();
+    taskWrapper.firstElementChild.remove();
+    listName.value = '';
   });
 };
 
 saveBtn.addEventListener('click', () => {
-  if (listName.value) {
+  if (listName.value && taskWrapper.firstElementChild !== null) {
     addTaskList();
 
     listName.placeholder = 'List name';
+    taskName.placeholder = 'Task';
   } else {
     listName.placeholder = 'Enter list name';
+    taskName.placeholder = 'Enter task';
   }
 });
