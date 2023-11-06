@@ -144,7 +144,7 @@ const addTaskList = function () {
   );
 
   originalListContent = taskWrapperModal.innerHTML;
-
+  console.log(originalListContent);
   taskWrapperModal.insertAdjacentHTML(
     'beforeend',
     `<div><button class="save-list-btn">Save</button><button class="edit-list-btn">Edit</button></div>`
@@ -152,9 +152,11 @@ const addTaskList = function () {
 
   const saveListBtn = taskWrapperModal.querySelector('.save-list-btn');
   const editListBtn = taskWrapperModal.querySelector('.edit-list-btn');
+
   editListBtn.addEventListener('click', () => {
     toggleModal(taskWrapperModal);
     taskWrapperModal.innerHTML = originalListContent;
+    console.log(originalListContent);
     taskWrapperModal.querySelector('h3').remove();
   });
 
