@@ -30,6 +30,7 @@ const taskWrapperModal = document.querySelector('.task-wrapper-modal');
 
 // Save task function
 // Função salvar tarefa
+
 const saveTask = function (taskInput) {
   const task = document.createElement('div');
   task.classList.add('task');
@@ -66,6 +67,8 @@ const saveTask = function (taskInput) {
   taskContainer.appendChild(taskWrapper);
   // Create a deep copy of the task
   // Criar cópia profunda de task
+  /* const taskClone = task.cloneNode(true); */
+
   const taskClone = task.cloneNode(true);
   taskWrapperModal.appendChild(taskClone);
 };
@@ -144,7 +147,6 @@ const addTaskList = function () {
   );
 
   originalListContent = taskWrapperModal.innerHTML;
-  console.log(originalListContent);
   taskWrapperModal.insertAdjacentHTML(
     'beforeend',
     `<div><button class="save-list-btn">Save</button><button class="edit-list-btn">Edit</button></div>`
@@ -155,18 +157,18 @@ const addTaskList = function () {
 
   editListBtn.addEventListener('click', () => {
     toggleModal(taskWrapperModal);
-    taskWrapperModal.innerHTML = originalListContent;
-    console.log(originalListContent);
+    /* taskWrapperModal.innerHTML = originalListContent; */
     taskWrapperModal.querySelector('h3').remove();
+    taskWrapperModal.innerHTML = '';
   });
 
-  //! Fix here
+  /*  //! Fix here
   saveListBtn.addEventListener('click', () => {
     toggleModal(taskWrapperModal);
     taskWrapperModal.querySelector('h3').remove();
     taskWrapper.firstElementChild.remove();
     listName.value = '';
-  });
+  }); */
 };
 
 saveBtn.addEventListener('click', () => {

@@ -185,7 +185,8 @@ body {
   width: 90%;
 }
 
-.task-name {
+.task-name,
+.task-clone {
   width: 90%;
   font-size: clamp(1rem, 3vw, 2rem);
   text-transform: capitalize;
