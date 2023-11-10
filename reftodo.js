@@ -135,10 +135,18 @@ document.addEventListener('click', (event) => {
   }
 });
 
+// Add Modal Task List
+// Adicionar Modal de Lista de Tarefas
+
 let originalListContent = '';
+let taskContent = '';
 
 const addTaskList = function () {
   toggleModal(taskWrapperModal);
+
+  taskContent = taskWrapper.cloneNode(true);
+  taskWrapperModal.appendChild(taskContent);
+
   const modalBtns = taskWrapperModal.querySelectorAll('a');
   modalBtns.forEach((btn) => btn.remove());
   taskWrapperModal.insertAdjacentHTML(
@@ -149,7 +157,7 @@ const addTaskList = function () {
   originalListContent = taskWrapperModal.innerHTML;
   taskWrapperModal.insertAdjacentHTML(
     'beforeend',
-    `<div><button class="save-list-btn">Save</button><button class="edit-list-btn">Edit</button></div>`
+    `<div class="btn-twmodal"><button class="save-list-btn">Save</button><button class="edit-list-btn">Edit</button></div>`
   );
 
   const saveListBtn = taskWrapperModal.querySelector('.save-list-btn');

@@ -311,8 +311,9 @@ body {
   text-decoration: underline;
 }
 
-.task-wrapper-modal div {
+.task-wrapper-modal .btn-twmodal {
   width: 100%;
+  padding: 2%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
