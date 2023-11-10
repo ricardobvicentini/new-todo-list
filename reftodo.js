@@ -180,7 +180,9 @@ const addTaskList = function () {
     toggleModal(taskWrapperModal);
     taskWrapperModal.querySelector('h3').remove();
     taskContent = '';
+    taskWrapperModal.innerHTML = '';
     listName.value = '';
+    taskWrapper.querySelectorAll('.task').forEach((el) => el.remove());
   });
 };
 
