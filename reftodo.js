@@ -141,6 +141,9 @@ document.addEventListener('click', (event) => {
 let originalListContent = '';
 let taskContent = '';
 
+// Function
+// Função
+
 const addTaskList = function () {
   toggleModal(taskWrapperModal);
 
@@ -163,20 +166,22 @@ const addTaskList = function () {
   const saveListBtn = taskWrapperModal.querySelector('.save-list-btn');
   const editListBtn = taskWrapperModal.querySelector('.edit-list-btn');
 
+  // Event
+  // Evento
+
   editListBtn.addEventListener('click', () => {
     toggleModal(taskWrapperModal);
-    /* taskWrapperModal.innerHTML = originalListContent; */
     taskWrapperModal.querySelector('h3').remove();
+    taskContent = '';
     taskWrapperModal.innerHTML = '';
   });
 
-  /*  //! Fix here
   saveListBtn.addEventListener('click', () => {
     toggleModal(taskWrapperModal);
     taskWrapperModal.querySelector('h3').remove();
-    taskWrapper.firstElementChild.remove();
+    taskContent = '';
     listName.value = '';
-  }); */
+  });
 };
 
 saveBtn.addEventListener('click', () => {
