@@ -69,8 +69,8 @@ const saveTask = function (taskInput) {
   // Criar cópia profunda de task
   /* const taskClone = task.cloneNode(true); */
 
-  const taskClone = task.cloneNode(true);
-  taskWrapperModal.appendChild(taskClone);
+  /*  const taskClone = task.cloneNode(true);
+  taskWrapperModal.appendChild(taskClone); */
 };
 
 // Show/Hide overlay/modals
