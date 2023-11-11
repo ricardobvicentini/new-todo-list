@@ -202,16 +202,6 @@ saveBtn.addEventListener('click', () => {
 const yesListBtn = listRemoveModal.querySelector('.yes-list-btn');
 const noListBtn = listRemoveModal.querySelector('.no-list-btn');
 
-noListBtn.addEventListener('click', () => toggleModal(listRemoveModal));
-yesListBtn.addEventListener('click', () => {
-  toggleModal(listRemoveModal);
-  taskWrapperModal.querySelector('h3').remove();
-  taskContent = '';
-  taskWrapperModal.innerHTML = '';
-  listName.value = '';
-  taskWrapper.querySelectorAll('.task').forEach((el) => el.remove());
-});
-
 listRemoveBtn.addEventListener('click', () => {
   if (listName.value && taskWrapper.firstElementChild !== null) {
     toggleModal(listRemoveModal);
@@ -222,4 +212,9 @@ listRemoveBtn.addEventListener('click', () => {
     listName.placeholder = 'Enter list name';
     taskName.placeholder = 'Enter task';
   }
+});
+
+noListBtn.addEventListener('click', () => toggleModal(listRemoveModal));
+yesListBtn.addEventListener('click', () => {
+  location.reload();
 });
