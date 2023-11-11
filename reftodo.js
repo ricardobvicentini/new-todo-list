@@ -24,6 +24,7 @@ const taskRemoveModal = document.querySelector('.task-remove-modal');
 const removeTaskYesBtn = document.querySelector('.remove-confirm.yes-btn');
 const removeTaskNoBtn = document.querySelector('.remove-confirm.no-btn');
 const taskWrapperModal = document.querySelector('.task-wrapper-modal');
+const listRemoveModal = document.querySelector('.list-remove-modal');
 
 //* Functions
 //* Funções
@@ -189,6 +190,31 @@ const addTaskList = function () {
 saveBtn.addEventListener('click', () => {
   if (listName.value && taskWrapper.firstElementChild !== null) {
     addTaskList();
+
+    listName.placeholder = 'List name';
+    taskName.placeholder = 'Task';
+  } else {
+    listName.placeholder = 'Enter list name';
+    taskName.placeholder = 'Enter task';
+  }
+});
+
+const yesListBtn = listRemoveModal.querySelector('.yes-list-btn');
+const noListBtn = listRemoveModal.querySelector('.no-list-btn');
+
+noListBtn.addEventListener('click', () => toggleModal(listRemoveModal));
+yesListBtn.addEventListener('click', () => {
+  toggleModal(listRemoveModal);
+  taskWrapperModal.querySelector('h3').remove();
+  taskContent = '';
+  taskWrapperModal.innerHTML = '';
+  listName.value = '';
+  taskWrapper.querySelectorAll('.task').forEach((el) => el.remove());
+});
+
+listRemoveBtn.addEventListener('click', () => {
+  if (listName.value && taskWrapper.firstElementChild !== null) {
+    toggleModal(listRemoveModal);
 
     listName.placeholder = 'List name';
     taskName.placeholder = 'Task';
