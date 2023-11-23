@@ -32,6 +32,12 @@ const listRemoveModal = document.querySelector('.list-remove-modal');
 // Save task function
 // Função salvar tarefa
 
+const colors = ['add', 'remove', 'reset'];
+function btnColor(btn, colors) {
+  btn.classList.add(`color-${colors}`);
+  setTimeout(() => btn.classList.remove(`color-${colors}`), 100);
+}
+
 const saveTask = function (taskInput) {
   const task = document.createElement('div');
   task.classList.add('task');
@@ -88,6 +94,7 @@ const toggleModal = (modal) => {
 taskAddBtn.addEventListener('click', () => {
   const taskInputValue = taskName.value;
   if (taskInputValue) {
+    btnColor(taskAddBtn, colors[0]);
     saveTask(taskInputValue);
     taskName.placeholder = 'Task';
   } else {
@@ -102,6 +109,7 @@ taskAddBtn.addEventListener('click', () => {
 taskResetBtn.addEventListener('click', () => {
   taskName.value = '';
   taskName.focus();
+  btnColor(taskResetBtn, colors[2]);
 });
 
 // Remove task
@@ -123,6 +131,7 @@ document.addEventListener('click', (event) => {
     targetEl.querySelector('.undo-icon').classList.toggle('show');
   }
   if (targetEl.classList.contains('task-remove-btn')) {
+    btnColor(targetEl, colors[1]);
     parentEl.classList.add('chosen');
     toggleModal(taskRemoveModal);
   }
@@ -205,7 +214,7 @@ const noListBtn = listRemoveModal.querySelector('.no-list-btn');
 listRemoveBtn.addEventListener('click', () => {
   if (listName.value && taskWrapper.firstElementChild !== null) {
     toggleModal(listRemoveModal);
-
+    btnColor(listRemoveBtn, colors[1]);
     listName.placeholder = 'List name';
     taskName.placeholder = 'Task';
   } else {

@@ -19,6 +19,9 @@
   --m-cont-grad: #143e60;
   --border: #6290c8ff;
   --text: #f5f9e9;
+  --red: #ca0303;
+  --green: #02aa02;
+  --orange: #d88d01;
 }
 
 html {
@@ -334,6 +337,18 @@ body {
 }
 
 /* UTILITY CLASSES - CLASSES UTILITÁRIAS - SHOW/HIDDEN */
+
+.color-add {
+  color: var(--green);
+}
+
+.color-remove {
+  color: var(--red);
+}
+
+.color-reset {
+  color: var(--orange);
+}
 
 .overlay {
   position: absolute;
